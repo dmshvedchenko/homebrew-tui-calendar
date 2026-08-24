@@ -4,6 +4,7 @@ class TuiCalendar < Formula
   url "https://github.com/dmshvedchenko/apple-tui-calendar/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "4e9518ab4c103e0ca0b28224926382d8fa9ac48bdc4042673cead4b01b22e0ee"
   license "MIT"
+  revision 1
 
   depends_on "rust" => :build
   depends_on :macos
