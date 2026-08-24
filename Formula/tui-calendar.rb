@@ -2,10 +2,7 @@ class TuiCalendar < Formula
   desc "Keyboard-first Apple Calendar client for the terminal"
   homepage "https://github.com/dmshvedchenko/apple-tui-calendar"
   url "https://github.com/dmshvedchenko/apple-tui-calendar/archive/refs/tags/v1.0.0.tar.gz"
-  version "1.0.0"
-  # PLACEHOLDER: replace with `shasum -a 256 v1.0.0.tar.gz` after publishing
-  # the v1.0.0 GitHub tag. Do not release or install this formula until then.
-  sha256 "0e0236393c7f41cd667c4e63fa6003f04e8fd959544315737b267ab61e900ee3"
+  sha256 "4e9518ab4c103e0ca0b28224926382d8fa9ac48bdc4042673cead4b01b22e0ee"
   license "MIT"
 
   depends_on "rust" => :build
