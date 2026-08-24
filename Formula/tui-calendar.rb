@@ -4,7 +4,7 @@ class TuiCalendar < Formula
   url "https://github.com/dmshvedchenko/apple-tui-calendar/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "4e9518ab4c103e0ca0b28224926382d8fa9ac48bdc4042673cead4b01b22e0ee"
   license "MIT"
-  revision 1
+  revision 2
 
   depends_on "rust" => :build
   depends_on :macos
@@ -14,7 +14,11 @@ class TuiCalendar < Formula
     cd "macos-calendar-service" do
       system "swift", "build", "-c", "release", "--disable-sandbox"
     end
-    (libexec/"tui-calendar").install "macos-calendar-service/.build/release/tui-calendar-service"
+    package = libexec/"tui-calendar"
+    package.install bin/"tui-calendar"
+    package.install "macos-calendar-service/.build/release/tui-calendar-service"
+    (bin/"tui-calendar").write_env_script package/"tui-calendar",
+      TUI_CALENDAR_SERVICE: package/"tui-calendar-service"
   end
 
   def caveats
@@ -28,6 +32,7 @@ class TuiCalendar < Formula
     assert_match(/^tui-calendar 1\.0\.0$/, shell_output("#{bin}/tui-calendar --version").strip)
     helper = libexec/"tui-calendar/tui-calendar-service"
     assert_predicate helper, :executable?
+    assert_match helper.to_s, (bin/"tui-calendar").read
     input = %Q({"protocol":2,"id":1,"method":"authorizationStatus","params":{}}\n)
     assert_match(/"protocol":2,"id":1,/, pipe_output(helper, input))
   end
