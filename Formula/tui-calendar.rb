@@ -34,6 +34,8 @@ class TuiCalendar < Formula
     assert_predicate helper, :executable?
     assert_match helper.to_s, (bin/"tui-calendar").read
     input = %Q({"protocol":2,"id":1,"method":"authorizationStatus","params":{}}\n)
-    assert_match(/"protocol":2,"id":1,/, pipe_output(helper, input))
+    output = pipe_output(helper, input)
+    assert_match(/"protocol":2/, output)
+    assert_match(/"id":1/, output)
   end
 end
