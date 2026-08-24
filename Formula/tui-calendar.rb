@@ -1,7 +1,7 @@
 class TuiCalendar < Formula
   desc "Keyboard-first Apple Calendar client for the terminal"
-  homepage "https://github.com/dima/apple-tui-calendar"
-  url "https://github.com/dima/apple-tui-calendar/archive/refs/tags/v1.0.0.tar.gz"
+  homepage "https://github.com/dmshvedchenko/apple-tui-calendar"
+  url "https://github.com/dmshvedchenko/apple-tui-calendar/archive/refs/tags/v1.0.0.tar.gz"
   version "1.0.0"
   # PLACEHOLDER: replace with `shasum -a 256 v1.0.0.tar.gz` after publishing
   # the v1.0.0 GitHub tag. Do not release or install this formula until then.
