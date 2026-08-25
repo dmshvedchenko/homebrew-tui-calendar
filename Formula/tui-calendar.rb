@@ -1,8 +1,8 @@
 class TuiCalendar < Formula
   desc "Keyboard-first Apple Calendar client for the terminal"
   homepage "https://github.com/dmshvedchenko/apple-tui-calendar"
-  url "https://github.com/dmshvedchenko/apple-tui-calendar/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "4e9518ab4c103e0ca0b28224926382d8fa9ac48bdc4042673cead4b01b22e0ee"
+  url "https://github.com/dmshvedchenko/apple-tui-calendar/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "6ad1c8ac2967636453c3f5268ce68673bc43ea89e946d3c439a8f752218d39aa"
   license "MIT"
   revision 2
 
@@ -29,7 +29,7 @@ class TuiCalendar < Formula
   end
 
   test do
-    assert_match(/^tui-calendar 1\.0\.0$/, shell_output("#{bin}/tui-calendar --version").strip)
+    assert_match(/^tui-calendar 1\.0\.1$/, shell_output("#{bin}/tui-calendar --version").strip)
     helper = libexec/"tui-calendar/tui-calendar-service"
     assert_predicate helper, :executable?
     assert_match helper.to_s, (bin/"tui-calendar").read
